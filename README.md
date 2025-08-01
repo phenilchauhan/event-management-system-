@@ -3,8 +3,6 @@
 
 A full-stack web app built with **React.js** (frontend) and **Node.js + Express + Sequelize + MySQL** (backend). Users can view and register for events, while admins can manage events, locations, and registrations.
 
----
-
 ## 🛠️ Tech Stack
 
 **Frontend**: React.js, Axios, React Router  
@@ -12,14 +10,11 @@ A full-stack web app built with **React.js** (frontend) and **Node.js + Express 
 **Auth**: JWT  
 **Env Management**: dotenv
 
----
-
 ## 📁 Folder Structure
 
 event-management-system/
 ├── backend/
 ├── frontend/
-
 
 ## ⚙️ Backend Setup
 
@@ -31,9 +26,6 @@ Install Dependencies
 
 npm install
 Create .env
-
-env
-
 DB_NAME=eventdb
 DB_USER=root
 DB_PASSWORD=
@@ -43,7 +35,6 @@ PORT=5000
 JWT_SECRET=supersecretkey123
 Create MySQL Database
 
-sql
 CREATE DATABASE eventdb;
 Start Server
 
@@ -60,8 +51,6 @@ Install Dependencies
 
 npm install
 Create .env
-
-
 REACT_APP_API_URL=http://localhost:5000
 Start React App
 npm start
@@ -72,10 +61,12 @@ cd backend && npm install && node app.js
 
 # Terminal 2 - Frontend
 cd frontend && npm install && npm start
-
 Runs at: http://localhost:3000
-
-
-
 npm start
 Runs at: http://localhost:3000
+ quick start 
+# Terminal 1 - Backend
+cd backend && npm install && node app.js
+
+# Terminal 2 - Frontend
+cd frontend && npm install && npm start
