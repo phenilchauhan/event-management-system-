@@ -20,11 +20,6 @@ event-management-system/
 ├── backend/
 ├── frontend/
 
-yaml
-Copy
-Edit
-
----
 
 ## ⚙️ Backend Setup
 
@@ -34,15 +29,11 @@ Edit
 cd backend
 Install Dependencies
 
-bash
-Copy
-Edit
 npm install
 Create .env
 
 env
-Copy
-Edit
+
 DB_NAME=eventdb
 DB_USER=root
 DB_PASSWORD=
@@ -53,14 +44,9 @@ JWT_SECRET=supersecretkey123
 Create MySQL Database
 
 sql
-Copy
-Edit
 CREATE DATABASE eventdb;
 Start Server
 
-bash
-Copy
-Edit
 node app.js
 # or for auto-reload
 npx nodemon app.js
@@ -69,26 +55,19 @@ Runs at: http://localhost:5000
 💻 Frontend Setup
 Go to Frontend Folder
 
-bash
-Copy
-Edit
 cd frontend
 Install Dependencies
 
-bash
-Copy
-Edit
 npm install
 Create .env
 
-env
-Copy
-Edit
+
 REACT_APP_API_URL=http://localhost:5000
 Start React App
+npm start
+Runs at: http://localhost:3000
 
-bash
-Copy
-Edit
+
+
 npm start
 Runs at: http://localhost:3000
