@@ -1,19 +1,11 @@
-const { Model, DataTypes } = require('sequelize');
-const sequelize = require('../config/db');
+const { DataTypes } = require('sequelize');
+const sequelize = require('../config/connect');
 
-class User extends Model {}
-
-User.init({
+const User = sequelize.define('User', {
   name: DataTypes.STRING,
-  email: DataTypes.STRING,
-  password: DataTypes.STRING,
-  role: {
-    type: DataTypes.STRING,
-    defaultValue: 'user'
-  }
-}, {
-  sequelize,
-  modelName: 'User'
+  email: { type: DataTypes.STRING, unique: true },
+  password_hash: DataTypes.STRING,
+  role: { type: DataTypes.ENUM('admin', 'user'), defaultValue: 'user' },
 });
 
 module.exports = User;

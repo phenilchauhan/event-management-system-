@@ -1,22 +1,12 @@
-// models/Location.js
-const { Model, DataTypes } = require('sequelize');
-const sequelize = require('../config/db');
+const { DataTypes } = require('sequelize');
+const sequelize = require('../config/connect');
 
-class Location extends Model {}
-
-Location.init({
-  name: {
-    type: DataTypes.STRING,
-    allowNull: false
-  },
-  address: {
-    type: DataTypes.STRING
-  }
-}, {
-  sequelize,
-  modelName: 'Location',
-  tableName: 'locations',  // optional, ensures correct table name
-  timestamps: true         // optional, default true
+const Location = sequelize.define('Location', {
+  name: DataTypes.STRING,
+  address: DataTypes.TEXT,
+  city: DataTypes.STRING,
+  state: DataTypes.STRING,
+  country: DataTypes.STRING,
 });
 
 module.exports = Location;

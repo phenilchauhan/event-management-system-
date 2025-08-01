@@ -1,34 +1,44 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import api from '../services/api';
+import { Container, Form, Button, Card } from 'react-bootstrap';
+import axios from 'axios';
 
-const Register = () => {
+function Register() {
   const [form, setForm] = useState({ name: '', email: '', password: '' });
-  const navigate = useNavigate();
 
-  const handleChange = (e) => {
-    setForm(prev => ({ ...prev, [e.target.name]: e.target.value }));
-  };
+  const handleChange = e => setForm({ ...form, [e.target.name]: e.target.value });
 
-  const handleRegister = async () => {
+  const handleSubmit = async e => {
+    e.preventDefault();
     try {
-      await api.post('/auth/register', form);
-      alert('Registration successful. Please login.');
-      navigate('/login');
-    } catch (e) {
-      alert('Registration failed.');
+      await axios.post('http://localhost:5000/auth/register', form);
+      alert('Registration successful');
+    } catch (err) {
+      alert('Registration failed');
     }
   };
 
   return (
-    <div>
-      <h2>Register</h2>
-      <input name="name" placeholder="Name" onChange={handleChange} /><br />
-      <input name="email" placeholder="Email" onChange={handleChange} /><br />
-      <input name="password" type="password" placeholder="Password" onChange={handleChange} /><br />
-      <button onClick={handleRegister}>Register</button>
-    </div>
+    <Container className="d-flex justify-content-center align-items-center" style={{ minHeight: '100vh' }}>
+      <Card style={{ width: '100%', maxWidth: '500px' }} className="shadow p-4">
+        <h3 className="text-center mb-4">Register</h3>
+        <Form onSubmit={handleSubmit}>
+          <Form.Group className="mb-3">
+            <Form.Label>Name</Form.Label>
+            <Form.Control name="name" onChange={handleChange} />
+          </Form.Group>
+          <Form.Group className="mb-3">
+            <Form.Label>Email</Form.Label>
+            <Form.Control name="email" type="email" onChange={handleChange} />
+          </Form.Group>
+          <Form.Group className="mb-3">
+            <Form.Label>Password</Form.Label>
+            <Form.Control name="password" type="password" onChange={handleChange} />
+          </Form.Group>
+          <Button type="submit" className="w-100">Register</Button>
+        </Form>
+      </Card>
+    </Container>
   );
-};
+}
 
 export default Register;
