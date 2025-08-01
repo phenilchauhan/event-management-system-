@@ -65,6 +65,14 @@ Create .env
 REACT_APP_API_URL=http://localhost:5000
 Start React App
 npm start
+
+for quick start
+# Terminal 1 - Backend
+cd backend && npm install && node app.js
+
+# Terminal 2 - Frontend
+cd frontend && npm install && npm start
+
 Runs at: http://localhost:3000
 
 
